@@ -1,0 +1,101 @@
+textarea{
+	height: 95px;
+	resize: none;
+}
+.mensaje{
+	position: absolute;
+	right: 20px;
+	bottom: 80px;
+	width: 30%;
+	background-color: #001733;
+	color: white;
+	z-index: 2;
+}
+.mensaje .mensaje_all{
+	position: relative;
+}
+.mensaje .mensaje_all .mensaje_cuerpo{
+	padding: 15px;
+}
+.mensaje .mensaje_all .btn-cerrar{
+	position: absolute;
+	top: -15px;
+	right: -10px;
+	background-color: red;
+	border-radius: 50%;
+	padding: .25rem .5rem;
+	color: white;
+}
+.btn-descargar{
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.navbar-laravel{
+	background-color: #001733;
+}
+.navbar-laravel .navbar-brand,
+.navbar-light .navbar-nav .nav-link{
+	color: white !important;
+}
+.card{
+	border-color: #001F4B;
+}
+.card .card-header{
+	background-color: #001F4B;
+	color: white;
+	position: relative;
+}
+.card .card-header p{
+	margin: 0;
+}
+.card .card-body .prev_esquema{
+	font-weight: bold;
+}
+.card .card-body .prev_competencia{
+	font-style: italic;
+}
+.btn-primary{
+	background-color: #F86E09;
+	border-color: #F86E09;
+}
+
+.btn-primary:hover{
+	background-color: white;
+	border-color: #F86E09;
+	color: #F86E09;
+}
+.btn-secondary.dropdown-toggle,
+.btn-opt-q{
+	border-radius: 0;
+	text-align: left;
+	position: relative;
+}
+.btn-secondary.dropdown-toggle:after{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+}
+
+.collapse .card-body{
+	border-radius: 0;
+}
+
+.btn-link{
+	color: #F86E09;
+}
+
+.btn-link:hover{
+	color: #FF6000;
+}
+
+.form-control:focus{
+	border-color: #001F4B;
+	box-shadow: 0 0 0 0.2rem rgba(0, 31, 75,.25);
+}
+
+.options_q li.correct{
+	background-color: lightgreen;
+}
