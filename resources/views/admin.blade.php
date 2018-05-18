@@ -52,6 +52,10 @@
                                                 <input class="form-check-input" type="radio" name="restrict" id="restrict2" value=2>
                                                 <label class="form-check-label" for="restrict2">Examen 2</label>
                                             </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="restrict" id="restrict3" value=3>
+                                                <label class="form-check-label" for="restrict3">Examen 3</label>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -62,7 +66,7 @@
                                                     <span class="input-group-prepend">
                                                         <label class="input-group-text" for="respuestaA">a</label>
                                                     </span>
-                                                    <input type="text" class="form-control" name="respuestaA">
+                                                    <textarea class="form-control" name="respuestaA" required=""></textarea>
                                                     <span class="input-group-prepend">
                                                         <div class="input-group-text">
                                                             <input type="radio" name="correcta" value="a" required="">
@@ -75,7 +79,7 @@
                                                     <div class="input-group-prepend">
                                                         <label class="input-group-text" for="respuestaB">b</label>
                                                     </div>
-                                                    <input type="text" class="form-control" name="respuestaB">
+                                                    <textarea class="form-control" name="respuestaB" required=""></textarea>
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
                                                             <input type="radio" name="correcta" value="b" required="">
@@ -88,7 +92,7 @@
                                                     <div class="input-group-prepend">
                                                         <label class="input-group-text" for="respuestaC">c</label>
                                                     </div>
-                                                    <input type="text" class="form-control" name="respuestaC">
+                                                    <textarea class="form-control" name="respuestaC" required=""></textarea>
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
                                                             <input type="radio" name="correcta" value="c" required="">
@@ -101,7 +105,7 @@
                                                     <div class="input-group-prepend">
                                                         <label class="input-group-text" for="respuestaD">d</label>
                                                     </div>
-                                                    <input type="text" class="form-control" name="respuestaD">
+                                                    <textarea class="form-control" name="respuestaD" required=""></textarea>
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
                                                             <input type="radio" name="correcta" value="d" required="">

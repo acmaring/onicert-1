@@ -50,17 +50,24 @@ class PagesController extends Controller
         $pregunta_total = [];
         $cantCompTotal = 0;
         $cantComp = [];
+        $mensaje = [];
+        $comConPreg = [];
 
         $esquema = Esquema::where('esq_id',$request->input('esq'))->get();
         #dd($esquema);
         
         $competencia = Competencia::where('com_esq_id',$request->input('esq'))->get();
 
-        $rand_restrict = rand(1, 2);
+        $rand_restrict = rand(1, 3);
 
         foreach ($competencia as $com) {
             $cantCompTotal += Pregunta::where('pre_com_id', $com->com_id)->count('pre_id');
             array_push($cantComp, Pregunta::where('pre_com_id', $com->com_id)->count('pre_id'));
+        }
+
+        if ($cantCompTotal == 0) {
+        array_push($mensaje, 'No hay preguntas para generar el exámen');
+            return back()->with('mensaje', $mensaje);
         }
         
         $int = 0;
@@ -187,11 +194,21 @@ class PagesController extends Controller
         //Nueva seccion
         //$seccion = $wordDoc->addSection();
 
+        $int = 0;
+        foreach ($competencia as $com) {
+            foreach ($pregunta_total as $pre) {
+                if ($com->com_id == $pre->pre_com_id) {
+                    array_push($comConPreg, $competencia[$int++]);
+                    break;
+                }
+            }
+        }
+
         //Texto sin formato
         //Preguntas y respuestas
         $seccion->addTitle('PREGUNTAS DE SELECCIÓN MÚLTIPLE CON ÚNICA RESPUESTA', 5);
         $seccion->addTextBreak();
-        foreach ($competencia as $com) {
+        foreach ($comConPreg as $com) {
             $seccion->addTitle($com->com_name, 5);
             foreach ($pregunta_total as $pre){
                 $opciones = ['a. ','b. ','c. ','d. '];
@@ -327,7 +344,7 @@ class PagesController extends Controller
         foreach ($esquema as $esq) {
             // $seccion->addTitle('Esquema: '.$esq->esq_name, 5);
         }
-        foreach ($competencia as $com) {
+        foreach ($comConPreg as $com) {
             // $seccion->addTitle('Competencia: '.$com->com_name, 5);
             foreach ($pregunta_total as $pre){
                 $opciones = ['a.png','b.png','c.png','d.png'];
@@ -366,7 +383,7 @@ class PagesController extends Controller
 
         return view('generar',[ 
             'esquema' => $esquema,
-            'competencia' => $competencia,
+            'competencia' => $comConPreg,
             'pregunta' => $pregunta_total,
             'respuesta' => $respuesta_total,
             'restriccion' => $rand_restrict,
